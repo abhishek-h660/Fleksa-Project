@@ -1,0 +1,13 @@
+.slide-bar{
+    display: grid;
+    height: 30vh;
+    margin-top: 5px;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: #cdcdd4;
+}
+
+#slide-image{
+    width:98%;
+    height: 30vh;
+    opacity: .8;
+}

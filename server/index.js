@@ -1,9 +1,28 @@
 const express = require('express')
+var bodyParser = require('body-parser')
+var cors = require('cors')
 const app = express()
-app.use(express.json())
 const port = 8080;
 const { MongoClient, ServerApiVersion } = require('mongodb');
 require('dotenv').config()
+app.use(express.json());
+
+const corsOpts = {
+    origin: '*',
+  
+    methods: [
+      'GET',
+      'POST',
+      'PATCH',
+      'UPDATE',
+    ],
+  
+    allowedHeaders: [
+      'Content-Type',
+    ],
+};
+  
+app.use(cors(corsOpts));
 
 const username = process.env.MONGO_USER;
 const password = process.env.MONGO_PASS;
@@ -39,9 +58,9 @@ function collectionCart() {
 
 //APIs
 
-async function listProducts(res) {
+async function listProducts(res, skip, limit) {
     try{
-        const cur = await collectionProducts().find({})
+        const cur = await collectionProducts().aggregate([{"$skip": skip}, {"$limit": limit}])
         const pdts = await cur.toArray()
         res.send(pdts)
     }finally{}
@@ -64,13 +83,15 @@ async function listCartItems(res) {
 
 //serving routess
 app.get('/products', (req, res) => {
-    listProducts(res)
+    const skip = parseInt(req.query.skip)
+    const limit = parseInt(req.query.limit)
+    listProducts(res, skip, limit)
 })
 
 
 app.post('/add_to_cart', (req, res) => {
-    res.send("added to cart")
     const item = req.body
+    //console.log(item)
     addToCart(item, res)
 })
 

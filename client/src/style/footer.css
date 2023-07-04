@@ -1,0 +1,66 @@
+.footer{
+    display: grid;
+    height: 30vh;
+    background-color: rgb(16, 5, 5);
+    grid-template-columns: 1fr 2fr;
+}
+
+.section-1{
+    display: grid;
+    margin: 1vh;
+    row-gap: 0px;
+    height: fit-content;
+}
+.section-2{
+    display: grid;
+    margin: 2vh;
+}
+
+.line{
+    height: 1vh;
+    background-color: aliceblue;
+}
+.section-2-subdivision-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.section-2-subdivision-container-text-part{
+    color: aliceblue;
+}
+
+.section-2-subdivision-container-social-media{
+    display: grid;
+    color: aliceblue;
+    height: fit-content;
+    row-gap: 2vh;
+}
+
+.section-2-subdivision-container-social-media-icons{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    height: fit-content;
+}
+
+.section-2-subdivision-container-social-media-icons img{
+   background-color: rgb(244, 239, 237);
+   border-radius: 45%;
+   width: 3vh;
+   height: 3vh;
+}
+
+#facebook-icon, #telegram-icon {
+    background-color: rgb(71, 71, 238);
+}
+
+#instagram-icon {
+    background-color: rgb(237, 41, 116);
+}
+
+
+#whatsapp-icon {
+    background-color: rgb(15, 201, 30);
+}
+
+.copyright{
+    color: aliceblue;
+}

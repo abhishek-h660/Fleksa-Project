@@ -1,0 +1,35 @@
+.home-header {
+    display: grid;
+    background-color: #b4b4f1;
+    grid-template-columns: 0.5fr 2fr .8fr;
+    gap: 4px;
+    height: 8vh;
+}
+
+.header-item {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    
+    padding: 2px;
+    color: aliceblue;
+    height: 7.5vh;
+    width: .5fr;
+}
+
+.header-item img {
+    height: 7.5vh;
+    border-radius: 50%;
+}
+
+.header-item-child:hover{
+    transform: translate3d(0px, -2px, 0px);
+    color: rgb(152, 239, 152);
+    transition: all 0.3s;
+}
+
+.header-item-child {
+    margin-right: 2px;
+    justify-self: end;
+    align-self: center;
+    font-size: large;
+}
