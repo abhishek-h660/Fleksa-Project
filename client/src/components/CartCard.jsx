@@ -1,5 +1,5 @@
-import './../style/products.css'
 const CartCard = (props) => {
+
     return(
         <div className="cart-product" key={props._id} id={props._id}>
             <div className='details'>
@@ -10,7 +10,7 @@ const CartCard = (props) => {
                     Price: ₹{props.price}
                 </div>
                 <div>
-                    Quantity: {props.quantity}
+                    Quantity: {props.quantity} <button className="quantity-button" onClick={()=>{props.addHandler(props)}}>+</button> <button className="quantity-button" onClick={()=>{props.removeHandler(props)}}>-</button>
                 </div>
                 <div>
                     Payable: ₹{props.price*parseInt(props.quantity)}

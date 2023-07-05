@@ -28,10 +28,15 @@
     left:20%;
 }
 
-.cart-container button{
+.pay-button{
     position: relative;
     left: 40vw;
     background-color: rgba(255, 115, 0, 0.936);
     width: 8vw;
     height: 6vh;
+}
+
+.quantity-button{
+    width: 5%;
+    height: fit-content;
 }
