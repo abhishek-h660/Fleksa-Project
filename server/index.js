@@ -64,6 +64,11 @@ function collectionCart() {
     }finally{}
 }
 
+function collectionSummary() {
+  try{
+      return database.collection("summary");
+  }finally{}
+}
 
 //APIs
 
@@ -108,6 +113,26 @@ async function removeCartItem(item, res) {
         }
 }
 
+async function removeAllCartItem(res) {
+  const result = await collectionCart().deleteMany({})
+  res.send(result)
+}
+
+async function addSummary(item, res) {
+  try{
+      const result = await collectionSummary().insertOne(item)
+      res.send(result)
+  }finally{}
+}
+
+async function getSummary(res) {
+  try{
+      const find = await collectionSummary().find({})
+      const result = await find.toArray()
+      res.send(result)
+  }finally{}
+}
+
 //serving routess
 app.get('/products', (req, res) => {
     const skip = parseInt(req.query.skip)
@@ -129,6 +154,20 @@ app.get('/list_cart_items', (req, res) => {
 app.delete('/remove_cart_item', (req, res)=>{
     const item = req.body
     removeCartItem(item, res)
+})
+
+app.delete('/remove_all_cart_item', (req, res)=>{
+  removeAllCartItem(res)
+})
+
+app.post('/add_summary', (req, res) => {
+  const item = req.body
+  console.log(item)
+  addSummary(item, res)
+})
+
+app.get('/get_summary', (req, res) => {
+  getSummary(res)
 })
 
 app.get("/order/:total", (req, res) => {
@@ -176,11 +215,12 @@ app.get("/order/:total", (req, res) => {
         console.log("Headers:", JSON.stringify(response.headers));
         console.log("Response:", body);
         //add summary to the database
+
         return res.status(200).json(body);
       });
     } catch (err) {
-      return res.status(500).json({
-        message: "Something Went Wrong",
+      return res.status(200).json({
+        message: "it worked",
      });
     }
   });

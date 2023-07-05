@@ -8,6 +8,7 @@ import {
   Route
 } from 'react-router-dom';
 import CartItems from './components/cart';
+import Summary from './components/summary';
 
 
 function App() {
@@ -24,9 +25,7 @@ function App() {
                     <Footer />
                 </div>
               }></Route>
-
-          <Route exact path='/become_a_seller' element={< HomeHeader />}></Route>
-          <Route exact path='/more' element={< HomeHeader />}></Route>
+          <Route exact path='/summary' element={< Summary />}></Route>
           <Route exact path='/cart' element={< CartItems />}></Route>
           <Route exact path='/signin' element={< HomeHeader />}></Route>
           <Route exact path='/signup' element={< HomeHeader />}></Route>

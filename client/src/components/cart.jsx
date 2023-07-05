@@ -6,6 +6,7 @@ import axios from "axios";
 
 const CartItems = () => {
     const [items, setItems] = useState([])
+    const [pdts, setPdts] = useState([])
     const [total, setTotal] = useState(0)
     const [cartChange, setCartChange] = useState(false)
 
@@ -24,8 +25,34 @@ const CartItems = () => {
             try {
              const paymentId = response.razorpay_payment_id;
              const url = `${API_URL}capture/${paymentId}/${total}`;
-             const captureResponse = await axios.post(url, {})
-             console.log(captureResponse.data);
+             axios.post(url, {}).then(() => {
+                var des = ""
+                const data = {
+                    "description": pdts,
+                    "total":total
+                }
+                fetch(`http://localhost:8080/add_summary`, {
+                    method:'post',
+                    headers:{
+                        "content-type":"application/json"
+                    },
+                    body:JSON.stringify(data)
+                }).then(res => {
+                    return res.json()
+                }).then(d => {
+                    console.log("added to summary", d)
+                    fetch(`http://localhost:8080/remove_all_cart_item`, {
+                        method:'delete'
+                    }).then(res => {
+                        return res.json()
+                    }).then(result => {
+                        console.log(result)
+                        setCartChange(!cartChange)
+                    })
+                })
+             })
+             //console.log("from here",captureResponse.data);
+             
             } catch (err) {
               console.log(err);
             }
@@ -98,6 +125,7 @@ const CartItems = () => {
             return res.json()
         }).then(data => {
             console.log(data)
+            setPdts(data)
             var sum = 0
             const products = data.map((product)=>{
                 sum = sum+(product.product.price*product.quantity)
@@ -111,12 +139,12 @@ const CartItems = () => {
     return(
         <div>
             <HomeHeader />
-            <div className='cart-container'>
+            {total>0 && <div className='cart-container'>
                 {items}
                 Total Payable Amount: ₹{total}
                 <button className="pay-button" onClick={paymentHandler}>Pay</button>
-            </div>
-            
+            </div>}
+            {total==0 && <div>Cart is Empty</div>}
         </div>
     )
 }

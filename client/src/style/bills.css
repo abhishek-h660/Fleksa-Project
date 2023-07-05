@@ -1,0 +1,12 @@
+.summary-container {
+    display: grid;
+    gap: 2vw;
+}
+
+.bill-container {
+    display: grid;
+    overflow: hidden;
+    height: fit-content;
+    border: 2px solid wheat;
+    background-color: rgb(220, 216, 209);
+}
