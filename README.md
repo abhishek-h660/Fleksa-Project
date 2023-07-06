@@ -1,7 +1,7 @@
 # Fleksa-Project
 
-To Run the application:
-	/Fleksa_Project/server/
-		Command: npm start
-	/Fleksa_Project/client/
-		Command: npm start
+To Run the application:<br/>
+	/Fleksa_Project/server/<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp; Command: npm start<br/>
+	/Fleksa_Project/client/<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp; Command: npm start
