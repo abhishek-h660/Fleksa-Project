@@ -49,7 +49,7 @@ const client = new MongoClient(uri, {
   }
 });
 
-const database = client.db("shri-krishnagan")
+const database = client.db("fleksa")
 
 
 function collectionProducts() {

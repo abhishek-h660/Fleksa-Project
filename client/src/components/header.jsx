@@ -7,7 +7,8 @@ function HomeHeader() {
         <div className="home-header">
             <div className='header-item' id='company-logo'><img src='/companyLogo.png' alt='Company logo' /></div>
             <SearchBox />
-            <div className='header-item'>
+            <div className='header-item' id="header-item-child-container">
+                <div className='header-item-child' id="menu"><Link to='/'>Menu</Link></div>
                 <div className='header-item-child' id="summary"><Link to='/summary'>Order Summary</Link></div>
                 <div className='header-item-child' id="cart"><Link to='/cart'>Cart</Link></div>
             </div>

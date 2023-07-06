@@ -1,11 +1,11 @@
 #searchBar{
-    width: 98%;
     height: 98%;
-
+    width: 400%;
 }
 
 #search-div{
     align-self: center;
+    width: 90%;
     height: 90%;
 }
 

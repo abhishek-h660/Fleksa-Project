@@ -7,8 +7,8 @@ function Products() {
     const [products, setProducts] = useState([])
     const [skipFactor, setSkipFactor] = useState(0)
     useEffect(() => {
-        const skip = skipFactor*20;
-        const limit = 20;
+        const skip = skipFactor*8;
+        const limit = 8;
         fetch(`http://localhost:8080/products?skip=${skip}&limit=${limit}`, {
             method: "Get"
         }).then(res => {

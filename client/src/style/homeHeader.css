@@ -1,19 +1,24 @@
 .home-header {
     display: grid;
     background-color: #b4b4f1;
-    grid-template-columns: 0.5fr 2fr .8fr;
+    grid-template-columns: 1fr 3fr 2.5fr;
     gap: 4px;
     height: 8vh;
 }
 
 .header-item {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr 3fr;
     
     padding: 2px;
     color: aliceblue;
     height: 7.5vh;
     width: .5fr;
+}
+
+#header-item-child-container{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
 }
 
 .header-item img {
@@ -29,7 +34,7 @@
 
 .header-item-child {
     margin-right: 2px;
-    justify-self: end;
+    justify-self: center;
     align-self: center;
     font-size: large;
 }

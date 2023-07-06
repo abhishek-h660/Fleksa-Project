@@ -70,7 +70,7 @@ const CartItems = () => {
             "user_id":product._id,
             "product":{
                 "_id":product._id,
-                "price": 1000,
+                "price": product.price,
                 "name": product.name,
                 "image": product.image,
             },
@@ -96,7 +96,7 @@ const CartItems = () => {
             "user_id":product._id,
             "product":{
                 "_id":product._id,
-                "price": 1000,
+                "price": product.price,
                 "name": product.name,
                 "image": product.image,
             },
